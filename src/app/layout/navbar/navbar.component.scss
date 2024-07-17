@@ -1,0 +1,41 @@
+$primary: #9dc3a5;
+$secondary: white;
+
+.navbar {
+    background-color: $primary;
+    color: $secondary;
+}
+
+.logoname,
+.logo {
+    color: $secondary;
+}
+
+.navbar-nav .nav-link.active {
+    color: $secondary;
+    font-weight: bolder;
+}
+
+.logoutlink {
+    display: none;
+}
+
+@media only screen and (max-width: 992px) {
+    .logoutbtn {
+        display: none;
+    }
+
+    .logoutlink {
+        display: block;
+    }
+
+    .username {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logoname {
+        display: none;
+    }
+}

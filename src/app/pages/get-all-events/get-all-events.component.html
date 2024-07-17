@@ -1,0 +1,37 @@
+<app-datatable [rowData]="rowData" [colDefs]="colDefs"></app-datatable>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Register Event</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="h4">{{particularEventData?.eventName}}</p>
+                <p><b>description:</b>{{particularEventData?.description}}</p>
+                <p><b>date:</b>{{particularEventData?.date}}</p>
+                <p><b>venue:</b>{{particularEventData?.venue}}</p>
+                <p><b>price:</b>{{particularEventData?.price}}</p>
+                <h6>Number of Tickets</h6>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" id="button-decrement" (click)="decrement()">-</button>
+                    </div>
+                    <input type="text" class="form-control text-center" [value]="counter" id="ticket-count" readonly>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-increment" (click)="increment()">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn registerBtn" (click)="registerForEvent()">Register</button>
+            </div>
+        </div>
+    </div>
+</div>

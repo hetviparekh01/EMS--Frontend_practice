@@ -1,0 +1,39 @@
+$primary: #9dc3a5;
+$secondary: white;
+
+.no-arrow .accordion-button::after {
+    display: none !important;
+}
+
+.accordion-button {
+    background-color: #f8f9fa;
+}
+
+.accordion-item {
+    border: none
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: none;
+}
+
+.accordion {
+
+    --bs-accordion-bg: none;
+}
+
+.offcanvas {
+    background-color: #f8f9fa;
+    --bs-offcanvas-width: 250px;
+}
+
+.dropdwnlink.active {
+    color: $secondary;
+    font-weight: bolder;
+}
+
+.dashboardlink {
+    text-decoration: none;
+}
