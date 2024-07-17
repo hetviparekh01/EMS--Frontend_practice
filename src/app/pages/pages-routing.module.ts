@@ -6,13 +6,13 @@ import { AddEventComponent } from './add-event/add-event.component';
 import { AddUserComponent } from './add-user/add-user.component';
 
 const routes: Routes = [
-  // {
-  //   path:'',
-  //   redirectTo:'home',
-  //   pathMatch:'full'
-  // },
   {
     path:'',
+    redirectTo:'home',
+    pathMatch:'full'
+  },
+  {
+    path:'home',
     component:DashboadComponent
   },
   {

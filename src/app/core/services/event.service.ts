@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IEvent } from '../interfaces/IEvent';
 
 @Injectable({
   providedIn: 'root',
@@ -12,5 +13,8 @@ export class EventService {
   }
   getEventById(id:string){
     return this.http.get(`/event/getEventById/${id}`);
+  }
+  addEvent(eventData:IEvent){
+    return this.http.post<any>(`/event/addEvent`,eventData)
   }
 }

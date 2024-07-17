@@ -19,7 +19,7 @@ export class DashboadComponent implements OnInit{
   ngOnInit(): void {
     this.getAllRegisteredEventForUser();
     this.getAllEvent();
-    // this.getAllUser();
+    this.getAllUser();
   }
 
   getAllRegisteredEventForUser(){
@@ -40,8 +40,7 @@ export class DashboadComponent implements OnInit{
   getAllUser(){
     this.userService.getAllUsers().subscribe({
       next:(response:any)=>{
-        console.log(response);
-        // this.totalUsers=response.data.length
+        this.totalUsers=response.data.length
       }
     })
   }

@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { GetAllEventsComponent } from './get-all-events/get-all-events.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { AddUserComponent } from './add-user/add-user.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

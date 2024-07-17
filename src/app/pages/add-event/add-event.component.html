@@ -3,36 +3,35 @@
         <div class="col-md-6">
             <div class="card mt-5 shadow-lg">
                 <div class="card-header text-center">
-                    <h2>Register</h2>
+                    <h2>Host Event</h2>
                 </div>
                 <div class="card-body">
-                    <form action="" method="" enctype="multipart/form-data">
+                    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
                         <div class="form-group mb-3">
-                            <label for="form-label name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="role form-label">Role</label>
-                            <select class="form-control" id="role" name="role" required>
-                                <option value="">Select a role</option>
-                                <option value="admin">Admin</option>
-                                <option value="user">User</option>
-                                <option value="guest">Guest</option>
-                            </select>
+                            <label for="eventName" class="form-label">Event Name</label>
+                            <input type="text" class="form-control" id="eventName" placeholder="Enter event name" required formControlName="eventName">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="email form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <label for="eventDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="3" placeholder="Enter event description" required formControlName="description"></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="password from-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
+                            <label for="eventDate">Date</label>
+                            <input type="date" class="form-control" id="eventDate" required formControlName="date">
                         </div>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Default file input example</label>
-                            <input class="form-control" type="file" id="formFile">
+                        <div class="form-group mb-3">
+                            <label for="eventVenue">Venue</label>
+                            <input type="text" class="form-control" id="eventVenue" placeholder="Enter event venue" required formControlName="venue">
                         </div>
-                        <div class="row">
+                        <div class="form-group mb-3">
+                            <label for="eventCapacity">Capacity</label>
+                            <input type="number" class="form-control" id="eventCapacity" placeholder="Enter event capacity" required formControlName="capacity">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="eventFee">Entry Fee</label>
+                            <input type="number" class="form-control" id="eventFee" placeholder="Enter entry fee"  formControlName="price">
+                        </div>
+                        <div class="row m-0">
                             <button type="submit" class="btn btn-block submitbtn">Submit</button>
                         </div>
                     </form>
