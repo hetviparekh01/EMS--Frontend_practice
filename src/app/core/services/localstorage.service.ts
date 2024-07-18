@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IUser } from '../interfaces/IUser';
 
 @Injectable({
   providedIn: 'root',
@@ -12,17 +13,24 @@ export class LocalstorageService {
   getToken() {
     return localStorage.getItem('accesstoken');
   }
-  setRole(role: string) {
-    localStorage.setItem('role', role);
+  // setRole(role: string) {
+  //   localStorage.setItem('role', role);
+  // }
+  // getRole() {
+  //   return localStorage.getItem('role');
+  // }
+  // setName(name: string) {
+  //   localStorage.setItem('name', name);
+  // }
+  // getName() {
+  //   return localStorage.getItem('name');
+  // }
+  setUserData(userData:IUser){
+    localStorage.setItem('userData',JSON.stringify(userData))
   }
-  getRole() {
-    return localStorage.getItem('role');
-  }
-  setName(name: string) {
-    localStorage.setItem('name', name);
-  }
-  getName() {
-    return localStorage.getItem('name');
+   getUserData(){
+     const userData=localStorage.getItem('userData')
+     return JSON.parse(userData as string)
   }
   clearLocalstorage() {
     localStorage.clear();

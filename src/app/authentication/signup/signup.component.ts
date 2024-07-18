@@ -16,7 +16,6 @@ export class SignupComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private localstorageService: LocalstorageService,
     private router: Router
   ) { }
   ngOnInit(): void {
@@ -51,12 +50,22 @@ export class SignupComponent {
 
       this.authService.signup(formData).subscribe({
         next: (response: any) => {
-          Swal.fire({
-            icon: 'success',
-            title: response.message,
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          if(response.status){
+            Swal.fire({
+              icon: 'success',
+              title: response.message,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            this.signupForm.reset();
+            this.router.navigate(['/auth/login'])
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: response.message,
+            });
+          }
         },
         error: (error) => {
           Swal.fire({
@@ -66,7 +75,6 @@ export class SignupComponent {
           });
         },
       });
-      this.signupForm.reset();
     }
   }
 }

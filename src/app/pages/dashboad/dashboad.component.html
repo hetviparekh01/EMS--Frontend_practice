@@ -24,64 +24,25 @@
     </div>
 </div> -->
 <div class="container">
-    <div class="row">
-      <!-- <div class="col-md-4 mb-3"> -->
+  <div class="row" *ngIf="role==='user'">
+        <div class="col-6 d-flex justify-content-end">
+          <app-card [title]="'View All Events'" [value]="totalEvents" type="button" routerLink="/viewAllEvents"></app-card>
+        </div>
+        <div class="col-6">
+          <app-card [title]="'View All Registerd Events'" [value]="eventRegistered" type="button" routerLink="/registerEvent"></app-card>
+        </div>
+  </div>
+    <div class="row"  *ngIf="role==='admin'">
+      <div class="col-4 mb-3">
       <app-card [title]="'View All Events'" [value]="totalEvents" type="button"
       routerLink="/viewAllEvents"></app-card>
-      <!-- </div> -->
-      <!-- <div class="col-md-4 mb-3"> -->
-        <app-card [title]="'View All Registerd Events'" [value]="eventRegistered" type="button"
-                routerLink="/"></app-card>
-      <!-- </div> -->
-      <!-- <div class="col-md-4 mb-3"> -->
-        <app-card [title]="'View All Users'" [value]="totalUsers" type="button" routerLink="/"></app-card>
-        
-      <!-- </div> -->
-    </div>
-</div>
-  <!-- <div class="container">
-    <div class="row">
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">View All events</h5>
-              <p class="card-text">{{totalEvents}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">View all registrered event</h5>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="col-4 mb-3">
+        <app-card [title]="'View All Registerd Events'" [value]="totalRegisterdEvents" type="button"
+                routerLink="/allRegisterEvent"></app-card>
+      </div>
+      <div class="col-4 mb-3">
+        <app-card [title]="'View All Users'" [value]="totalUsers" type="button" routerLink="/viewAllUser"></app-card>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">View All events</h5>
-            <p class="card-text">{{totalEvents}}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">View all registrered event</h5>
-            <p class="card-text"></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">view all users</h5>
-            <p class="card-text">{{totalUsers}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
+</div>

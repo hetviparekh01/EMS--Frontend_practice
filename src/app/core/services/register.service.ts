@@ -14,4 +14,7 @@ export class RegisterService {
   getAllRegisteredEventForUser(){
     return this.http.get<any>(`/register/getAllRegisteredEventForUser`)
   }
+  getAllRegisterevent(){
+    return this.http.get<any>(`/register/registerEvent`)
+  }
 }

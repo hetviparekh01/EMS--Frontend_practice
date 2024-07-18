@@ -17,6 +17,7 @@ export class CustomRendererComponent implements ICellRendererAngularComp {
     return true;
   }
   registerBtn() {
+    console.log(this.params);
     this.params.registerBtn(this.params.data._id);
   }
 }

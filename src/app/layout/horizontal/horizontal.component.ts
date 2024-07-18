@@ -10,7 +10,7 @@ export class HorizontalComponent implements OnInit {
   role!:string;
   constructor(private localstorageService:LocalstorageService){}
   ngOnInit(): void {
-    this.role=this.localstorageService.getRole() as string
+    this.role=this.localstorageService.getUserData().role as string
   }
   
   

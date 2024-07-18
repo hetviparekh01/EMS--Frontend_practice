@@ -1,17 +1,26 @@
-$primary: #9dc3a5;
+$primary: #405D72;
 $secondary: white;
 
 .no-arrow .accordion-button::after {
     display: none !important;
 }
 
-.accordion-button {
-    background-color: #f8f9fa;
+// .accordion-button {
+//     background-color: $primary;
+// }
+.sidebar{
+    width: 230px;
+    height: 100vh;
+    background-color: $primary;
 }
 
 .accordion-item {
-    border: none
+    border: none;
+
 }
+// .accordion-button {
+//     color: $secondary !important;
+// }
 
 .accordion-button:focus {
     z-index: 3;
@@ -29,11 +38,23 @@ $secondary: white;
     --bs-offcanvas-width: 250px;
 }
 
-.dropdwnlink.active {
-    color: $secondary;
+.active {
+    background-color: $secondary;
+    color: $primary;
     font-weight: bolder;
 }
-
-.dashboardlink {
+a{
     text-decoration: none;
+    color: $secondary;
+    border-radius: 5px;
+    margin-bottom: 1rem;
 }
+a:hover {
+    background-color: $secondary;
+    color: $primary;
+    font-weight: bolder;
+    border-radius: 5px;
+}
+// .dashboardlink {
+//     text-decoration: none;
+// }

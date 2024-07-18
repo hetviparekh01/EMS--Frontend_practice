@@ -5,6 +5,7 @@ import { DatatableComponent } from './datatable/datatable.component';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CustomRendererComponent } from './custom-renderer/custom-renderer.component';
 import { CellRendererComponent } from 'ag-grid-community/dist/types/core/components/framework/componentTypes';
+import { CustomRendererEditDeleteComponent } from './custom-renderer-edit-delete/custom-renderer-edit-delete.component';
 
 
 
@@ -12,7 +13,8 @@ import { CellRendererComponent } from 'ag-grid-community/dist/types/core/compone
   declarations: [
     CardComponent,
     DatatableComponent,
-    CustomRendererComponent
+    CustomRendererComponent,
+    CustomRendererEditDeleteComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { CellRendererComponent } from 'ag-grid-community/dist/types/core/compone
   exports:[
     CardComponent,
     DatatableComponent,
-    CustomRendererComponent
+    CustomRendererComponent,
+    CustomRendererEditDeleteComponent
   ]
 })
 export class SharedModule { }

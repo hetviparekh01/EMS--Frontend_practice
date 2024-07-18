@@ -6,6 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./datatable.component.scss']
 })
 export class DatatableComponent {
-    @Input() rowData:any;
+    @Input() rowData:any ;
     @Input() colDefs:any;
+    gridOptions={
+      rowHeight:60
+    }
 }

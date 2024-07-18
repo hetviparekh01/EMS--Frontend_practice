@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 import { EventService } from 'src/app/core/services/event.service';
+import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 import { RegisterService } from 'src/app/core/services/register.service';
 import { CustomRendererComponent } from 'src/app/shared/custom-renderer/custom-renderer.component';
 import Swal from 'sweetalert2';
@@ -11,20 +12,21 @@ import Swal from 'sweetalert2';
   styleUrls: ['./get-all-events.component.scss'],
 })
 export class GetAllEventsComponent implements OnInit {
-  rowData: any;
   particularEventData: any;
-  isAdmin: boolean = false;
+  isAdmin: boolean = true;
   counter: number = 1;
+  eventData:any;
+  role=this.ls.getUserData().role as string;
   colDefs: ColDef[] = [
     { headerName: 'EventName', field: 'eventName', flex: 2 },
     { headerName: 'Description', field: 'description', flex: 2 },
     { headerName: 'Date', field: 'date', flex: 2 },
     { headerName: 'Venue', field: 'venue', flex: 2 },
     { headerName: 'Price', field: 'price', flex: 2 },
-    { headerName: 'Capacity', field: 'capacity', flex: 2 },
+    { headerName: 'Capacity', field: 'capacity', flex: 2 ,hide:this.isAdmin},
     {
       headerName: 'Registered User',
-      field: 'registeredUser',
+      field: 'registeredUser', 
       flex: 2,
       hide: this.isAdmin,
     },
@@ -40,10 +42,14 @@ export class GetAllEventsComponent implements OnInit {
   ];
   constructor(
     private eventService: EventService,
-    private registerEventService: RegisterService
+    private registerEventService: RegisterService,
+    private ls:LocalstorageService
   ) { }
   ngOnInit(): void {
     this.getAllEvent();
+    if(this.role==='admin'){
+      this.isAdmin=true
+    }
   }
   increment() {
     this.counter++;
@@ -54,8 +60,23 @@ export class GetAllEventsComponent implements OnInit {
   registerBtn(id: string) {
     this.eventService.getEventById(id).subscribe({
       next: (response: any) => {
-        this.particularEventData = response.data;
+        if(response.status){
+          this.particularEventData = response.data;
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: response.message,
+          });
+        }
       },
+      error:(error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message,
+        });
+      }
     });
   }
   registerForEvent() {
@@ -76,14 +97,29 @@ export class GetAllEventsComponent implements OnInit {
           })
           .subscribe({
             next: (response: any) => {
-              Swal.fire({
-                icon: 'success',
-                title: response.message,
-                showConfirmButton: false,
-                timer: 1500,
-              });
-              this.getAllEvent()
+              if(response.status){
+                Swal.fire({
+                  icon: 'success',
+                  title: response.message,
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                this.getAllEvent()
+              }else{
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: response.message,
+                });
+              }
             },
+            error:(error)=>{
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error.message,
+              });
+            }
           });
       }
     });
@@ -92,8 +128,23 @@ export class GetAllEventsComponent implements OnInit {
   getAllEvent() {
     this.eventService.getAllevent().subscribe({
       next: (response: any) => {
-        this.rowData = response.data;
+        if(response.status){
+          this.eventData = response.data;
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: response.message,
+          });
+        }
       },
+      error:(error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message,
+        });
+      }
     });
   }
 } 

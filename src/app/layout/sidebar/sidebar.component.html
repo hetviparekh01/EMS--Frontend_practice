@@ -1,16 +1,29 @@
 <div class="d-flex">
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar" style="width: 230px; height: 100vh;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 sidebar">
         <div class="accordion" id="sidebarAccordion">
             <!-- Dashboard -->
             <div class="accordion-item no-arrow">
                 <div class="accordion-header">
-                    <a routerLink="/" class="accordion-button collapsed dashboardlink">
+                    <a routerLink="/home" class="accordion-button collapsed " routerLinkActive="active" >
                         Dashboard
                     </a>
                 </div>
             </div>
+            <div class="accordion-item no-arrow">
+                <div class="accordion-header">
+                    <a routerLink="/addEvent" class="accordion-button collapsed " routerLinkActive="active">
+                        Add Event
+                    </a>
+                </div>
+            </div><div class="accordion-item no-arrow">
+                <div class="accordion-header">
+                    <a routerLink="/addUser" class="accordion-button collapsed  " routerLinkActive="active">
+                       Add User
+                    </a>
+                </div>
+            </div>
             <!-- Book -->
-            <div class="accordion-item">
+            <!-- <div class="accordion-item">
                 <h2 class="accordion-header" id="bookHeading">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#bookCollapse" aria-expanded="false" aria-controls="bookCollapse">
@@ -27,7 +40,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Author -->
             <!-- <div class="accordion-item">
@@ -78,7 +91,7 @@
             </div> -->
 
             <!-- User (based on role) -->
-            <div class="accordion-item">
+            <!-- <div class="accordion-item">
                 <h2 class="accordion-header" id="userHeading">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#userCollapse" aria-expanded="false" aria-controls="userCollapse">
@@ -92,13 +105,10 @@
                             <li class="nav-item">
                                 <a routerLink="/addUser" class="nav-link" routerLinkActive="active">Add User</a>
                             </li>
-                            <li class="nav-item">
-                                <a routerLink="/viewAllUser" class="nav-link" routerLinkActive="active">All Users</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>

@@ -7,6 +7,7 @@ import { LayoutModule } from './layout/layout.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { BaseURLInterceptor } from './core/interceptors/base-url.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, LayoutModule, HttpClientModule],
@@ -21,6 +22,11 @@ import { BaseURLInterceptor } from './core/interceptors/base-url.interceptor';
       useClass: BaseURLInterceptor,
       multi: true,
     },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:ErrorInterceptor,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent],
 })

@@ -2,12 +2,14 @@
     <div class="container-fluid">
         <div class="d-flex">
             <a class="navbar-brand d-flex align-items-center fw-bold logo " routerLink="/"><i
-                    class="fa-brands fa-product-hunt fa-2x  mx-1"></i><span class="logoname">Event Management System</span></a>
+                    class="fa-brands fa-product-hunt fa-2x  mx-1"></i><span class="logoname">Event Management
+                    System</span></a>
         </div>
         <div class="ms-auto order-lg-last ">
-            <img src="http://localhost:3000/public/{{userData?.profileImage}}" class="rounded-circle mx-sm-2 mx-md-2 m-0" width="50px"
-                height="45px" data-bs-toggle="modal" data-bs-target="#modalId"><span class="fw-bold me-3 username"
-                data-bs-toggle="modal" data-bs-target="#modalId">{{name}}</span>
+            <img src="http://localhost:3000/public/{{userData?.profileImage}}"
+                class="rounded-circle mx-sm-2 mx-md-2 m-0" width="50px" height="45px" data-bs-toggle="modal"
+                data-bs-target="#modalId"><span class="fw-bold me-3 username" data-bs-toggle="modal"
+                data-bs-target="#modalId">{{name}}</span>
             <!-- Modal Body -->
             <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
                 role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
@@ -20,13 +22,23 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="row justify-content-center">
-                                <label for="imageUpload">
-                                    <img src="" class="rounded-circle" height="120px"
-                                        style="width: 150px; cursor: pointer;" #previewImage>
-                                </label>
-                                <input type="file" id="imageUpload" style="display: none;" />
-                            </div>
+                            <form [formGroup]="signupForm">
+                                <div class="row">
+                                    <label for="imageUpload">
+                                        <img src="{{temporaryUrl}}"
+                                            class="rounded-circle" height="120px" style="width: 150px; cursor: pointer;"
+                                            #previewImage>
+                                    </label>
+                                    <input type="file" id="imageUpload" style="display: none;" (change)="loadFile($event,previewImage)" />
+                                </div>
+                                <div class="row text-dark my-3">
+                                    <div class="form-group mb-3">
+                                        <label for="name" >Name:</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter your name"
+                                            formControlName="userName">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -37,8 +49,8 @@
                     </div>
                 </div>
             </div>
-            <button class="btn  btn-outline-light logoutbtn" (click)="logout()"><i class="fa-solid fa-right-from-bracket  mx-1"
-                    type="button" ></i>Logout</button>
+            <button class="btn  btn-outline-light logoutbtn" (click)="logout()"><i
+                    class="fa-solid fa-right-from-bracket  mx-1" type="button"></i>Logout</button>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,15 +61,15 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/home" routerLinkActive="active" aria-current="page">Home</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" routerLink="/form" routerLinkActive="active">Form</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/table" routerLinkActive="active">Table</a>
-                </li>
+                </li> -->
                 <li>
-                    <button class="btn btn-sm  btn-outline-light logoutlink" (click)="logout()"  type="button"><i
-                            class="fa-solid fa-right-from-bracket  mx-1" ></i>Logout</button>
+                    <button class="btn btn-sm  btn-outline-light logoutlink" (click)="logout()" type="button"><i
+                            class="fa-solid fa-right-from-bracket  mx-1"></i>Logout</button>
                 </li>
             </ul>
         </div>

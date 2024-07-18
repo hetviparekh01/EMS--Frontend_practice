@@ -8,6 +8,9 @@ import { GetAllEventsComponent } from './get-all-events/get-all-events.component
 import { AddEventComponent } from './add-event/add-event.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewAllUserComponent } from './view-all-user/view-all-user.component';
+import { GetRegisteredeventComponent } from './get-registeredevent/get-registeredevent.component';
+import { AllRegistereventComponent } from './all-registerevent/all-registerevent.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboadComponent,
     GetAllEventsComponent,
     AddEventComponent,
-    AddUserComponent
+    AddUserComponent,
+    ViewAllUserComponent,
+    GetRegisteredeventComponent,
+    AllRegistereventComponent
   ],
   imports: [
     CommonModule,

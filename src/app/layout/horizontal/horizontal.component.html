@@ -1,8 +1,8 @@
-<app-navbar></app-navbar>
+ <app-navbar></app-navbar>
 
 <div class="d-flex">
     <app-sidebar *ngIf="role==='admin'"></app-sidebar>
-    <div class="flex-grow-1 p-3 vh-100">
+    <div class="flex-grow-1 p-3 vh-100 bg-light">
         <router-outlet></router-outlet>
     </div>
-</div>
+ </div>

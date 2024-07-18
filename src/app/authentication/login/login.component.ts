@@ -23,16 +23,24 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response: any) => {
-          Swal.fire({
-            icon: 'success',
-            title: response.message,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          this.localstorageService.setToken(response.data.accessToken)
-          this.localstorageService.setName(response.data.userData.userName)
-          this.localstorageService.setRole(response.data.userData.role)
-          this.router.navigate(['/home'])
+          if(response.status){
+            Swal.fire({
+              icon: 'success',
+              title: response.message,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            this.localstorageService.setToken(response.data.accessToken)
+            this.localstorageService.setUserData(response.data.userData)
+            this.router.navigate(['/home'])
+            this.loginForm.reset()
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: response.message,
+            });
+          }
         },
         error: (error) => {
           Swal.fire({
@@ -41,8 +49,9 @@ export class LoginComponent implements OnInit {
             text: error.message,
           });
         },
+        
       });
-      this.loginForm.reset()
+    
     }
   }
 }
